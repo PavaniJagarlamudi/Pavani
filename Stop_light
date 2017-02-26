@@ -1,0 +1,27 @@
+import  RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.setup(40, GPIO.IN,pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(37,GPIO.OUT)
+GPIO.setup(35,GPIO.OUT)
+GPIO.setup(33,GPIO.OUT)
+while True:
+    if (GPIO.input(40)==1):
+      while True:
+         print("button pressed")
+         GPIO.output(37,True)
+         time.sleep(2)
+         GPIO.output(37,False)
+         GPIO.output(35,True)
+         time.sleep(0.5)
+         GPIO.output(35,False)
+         time.sleep(0.5)
+         GPIO.output(35,True)
+         time.sleep(0.5)
+         GPIO.output(35,False)
+         time.sleep(0.5)
+         GPIO.output(33,True)
+         time.sleep(2)
+         GPIO.output(33,False)
